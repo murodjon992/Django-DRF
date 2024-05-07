@@ -1,0 +1,82 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+
+ <main>
+   <!-- Slider Area Start-->
+   <div class="slider-area slider-bg ">
+     <!-- Single Slider -->
+     <div class="single-slider d-flex align-items-center slider-height3">
+       <div class="container">
+         <div class="row align-items-center justify-content-center">
+           <div class="col-xl-8 col-lg-9 col-md-12 ">
+             <div class="hero__caption hero__caption3 text-center">
+               <h1 data-animation="fadeInLeft" data-delay=".6s ">Test</h1>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- Slider Shape -->
+     <div class="slider-shape d-none d-lg-block">
+       <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+     </div>
+   </div>
+   <!-- Slider Area End -->
+   <!--? Blog Area Start -->
+   <section class="blog_area single-post-area section-padding">
+     <div class="container">
+      <div class="row">
+       <div class="col-lg-8 posts-list">
+           <a class="text-primary" href="{% url 'user-profile' user.username %}">kabinetga</a>
+           <h2 class="text-uppercase pb-3 font-weight-bold"> {{ test.category }} bo'yicha testlar</h2>
+
+               <hr>
+           <form id="my" method="post">
+                {% for i in savol %}
+               <br>
+                <h2 class="font-weight-bold"> {{ forloop.counter }}) {{ i.question }}</h2>
+               {% csrf_token %}
+               <input type="hidden" name="id" value="{{ i.id }}">
+               <div class="d-flex align-items-center">
+                   <input name="{{ i.id }}" id="{{ i.id}}-a"  type="radio" class="p-2 mx-3 javob_radio" value="A">
+                   <label class="form-label" for="{{ i.id }}-a">{{ i.a }}</label>
+               </div>
+               <div class="d-flex align-items-center">
+                   <input name="{{ i.id }}" id="{{ i.id}}-b"  type="radio" class="p-2 mx-3 javob_radio" value="B">
+                   <label class="form-label" for="{{ i.id }}-b">{{ i.b }}</label>
+               </div>
+                <div class="d-flex align-items-center">
+                   <input name="{{ i.id }}" id="{{ i.id}}-c"  type="radio" class="p-2 mx-3 javob_radio" value="C">
+                   <label class="form-label" for="{{ i.id }}-c">{{ i.c }}</label>
+               </div>
+               <div class="d-flex align-items-center">
+                   <input name="{{ i.id }}" id="{{ i.id}}-d"   type="radio" class="p-2 mx-3 javob_radio" value="D">
+                   <label class="form-label" for="{{ i.id }}-d">{{ i.d }}</label>
+               </div>
+           {% endfor %}
+
+               <button type="submit" class="btn mb-2" id="javob">javob</button>
+           </form>
+
+</div>
+</div>
+</div>
+</section>
+<!-- Blog Area End -->
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript">
+<!--    $(document).ready(function() {-->
+<!--        $('#javob').click(function(e) {-->
+<!--            var int = $('input[type="radio"]').length;-->
+<!--          if($('input[type="radio"]').is(':checked') >= (int / 4)) {-->
+<!--            console.log('has checked')-->
+<!--          } else {-->
+<!--            console.log('has no checked')-->
+<!--          }-->
+<!--        });-->
+<!--    });-->
+</script>
+
+{% endblock %}

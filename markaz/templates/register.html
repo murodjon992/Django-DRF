@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+<main class="login-body" data-vide-bg="{% static 'assets/img/login-bg.mp4' %}">
+    <!-- Login Admin -->
+    <form class="form-default" action="{% url 'register' %} " method="POST">
+        {% csrf_token %}
+        <div class="login-form">
+            <!-- logo-login -->
+            <div class="logo-login">
+                <a href="index.html"><img src="assets/img/logo/loder.png" alt=""></a>
+            </div>
+            {% include 'messa.html' %}
+            <h2>R'yxatdan o'tish</h2>
+
+            <div class="form-input">
+                <input  type="text" name="name" placeholder="Full name">
+            </div>
+            <div class="form-input">
+                <input type="email" name="email" placeholder="Email Address">
+            </div>
+            <div class="form-input">
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-input">
+                <input type="password" name="password" placeholder="Confirm Password">
+            </div>
+            <div class="form-input pt-30">
+                <input type="submit" name="submit" value="Ro'yxatdan o'tish">
+            </div>
+            <!-- Forget Password -->
+            <a href="{% url 'login_user' %}" class="registration">Kabinetga kirish</a>
+        </div>
+    </form>
+    <!-- /end login form -->
+</main>
+
+
+{% endblock %}

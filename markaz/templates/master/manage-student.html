@@ -1,0 +1,81 @@
+{% extends 'master/index.html' %}
+{% block content %}
+
+        <div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">O'quvchilar ro'yxati</h3>
+                    <a class="btn btn-outline btn-success" href="{% url 'add-student' %}">O'quvchi qo'shish</a>
+				</div>
+			</div>
+		</div>
+        <div class="content">
+            <div class="col-12">
+			  <div class="box">
+				<div class="box-header with-border">
+				  <h4 class="box-title">O'quvchilar Jadvali</h4>
+				  <div class="box-controls pull-right">
+					<div class="lookup lookup-circle lookup-right">
+					  <input type="text" name="s">
+					</div>
+				  </div>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="table-responsive">
+							<table id="example" class="table table-striped table-bordered display" style="width:100%">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Foydalanuvchi nomi</th>
+										<th>Familiya Ismi</th>
+										<th>Elektron pochta</th>
+										<th>Guruhi</th>
+										<th>Test</th>
+										<th>Kursi</th>
+										<th>Holati</th>
+										<th>Rasmi</th>
+										<th>Xarakatlar</th>
+									</tr>
+								</thead>
+								<tbody>
+								{% for i in student %}
+									<tr>
+										<td>{{ i.id }}</td>
+										<td>{{ i.username }}</td>
+										<td>{{ i.last_name }} {{ i.first_name }}</td>
+										<td>{{ i.email }}</td>
+										<td>{{ i.group_id }}</td>
+										{% if i.test == 0 %}
+										<td><a class="badge rounded badge-danger" href="{% url 'test_bor' i.id %}">Test yoq</a></td>
+										{% else %}
+										<td><a class="badge rounded badge-success" href="{% url 'test_bor' i.id %}">Test bor</a></td>
+										{% endif %}
+										<td>{{ i.course_id }}</td>
+										{% if i.status == 1 %}
+										<td><a class="badge rounded badge-primary" name="oqi" href="{% url 'status' i.id %}">O'qiyapti</a></td>
+										{% elif i.status == 2 %}
+										<td><a class="badge rounded badge-danger" href="{% url 'status' i.id %}">Ketgan</a></td>
+										{% else %}
+										<td><a class="badge rounded badge-success" href="{% url 'status' i.id %}">Bitirgan</a></td>
+										{% endif %}
+										<td><img height="50" width="100" src="/media/{{ i.profile_pic }}" alt=""></td>
+										<td>
+											 <a href="{%  url 'edit-student' i.id %}" class="btn btn-success"><i class="fa fa-edit"></i></a>
+							  <a href="{%  url 'delete-course' i.id %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+										</td>
+
+									</tr>
+								{% endfor %}
+								</tbody>
+
+							</table>
+						</div>
+				</div>
+				<!-- /.box-body -->
+			  </div>
+			  <!-- /.box -->
+			</div>
+        </div>
+
+{% endblock %}

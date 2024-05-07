@@ -1,0 +1,279 @@
+ <!-- Left side column. contains the logo and sidebar -->
+ {% load static %}
+  <aside class="main-sidebar">
+    <!-- sidebar-->
+    <section class="sidebar">
+
+        <div class="user-profile">
+			<div class="ulogo">
+				 <a href="index.html">
+				  <!-- logo for regular state and mobile devices -->
+					 <div class="d-flex align-items-center justify-content-center">
+						  <img width="40" height="50" src="{% static 'assets/img/logokichik.png' %}" alt="">
+						  <h3><b>ITPlanet</b> Admin</h3>
+					 </div>
+				</a>
+			</div>
+        </div>
+
+      <!-- sidebar menu-->
+      <ul class="sidebar-menu" data-widget="tree">
+
+		<li>
+          <a href="{% url 'admin-manage' %}">
+            <i data-feather="pie-chart"></i>
+			<span>Dashboard</span>
+          </a>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i data-feather="database"></i>
+            <span>Guruhlar</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'add-group' %}"><i class="fa fa-plus-circle"></i>Guruh Qo'shish</a></li>
+            <li><a href="{% url 'manage-group' %}"><i class="fa fa-table"></i>Guruhlar ro'yxati</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i data-feather="layers"></i> <span>Kurslar</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'add-course' %}"><i class="ti-more"></i>Kurs qo'shish</a></li>
+            <li><a href="{% url 'manage-course' %}"><i class="ti-more"></i>Kurslar ro'yxati</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i data-feather="user"></i>
+            <span>O'quvchilar</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'add-student' %}"><i class="ti-more"></i>O'quvchi qo'shish</a></li>
+            <li><a href="{% url 'manage-student' %}"><i class="ti-more"></i>O'quvchilar Ro'yxati</a></li>
+          </ul>
+        </li>
+
+
+        <li class="treeview">
+          <a href="#">
+            <i data-feather="clipboard"></i>
+            <span>Yangiliklar</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'add-new' %}"><i class="ti-more"></i>Yangilik qo'shish</a></li>
+            <li><a href="{% url 'manage-new' %}"><i class="ti-more"></i>Yangiliklar ro'yxati</a></li>
+          </ul>
+        </li>
+
+		<li class="treeview">
+          <a href="#">
+            <i data-feather="credit-card"></i>
+            <span>Cards</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+			<li><a href="card_advanced.html"><i class="ti-more"></i>Advanced Cards</a></li>
+			<li><a href="card_basic.html"><i class="ti-more"></i>Basic Cards</a></li>
+			<li><a href="card_color.html"><i class="ti-more"></i>Cards Color</a></li>
+		  </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i data-feather="hard-drive"></i>
+            <span>SAVOLLAR</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'add-test' %}"><i class="ti-more"></i>Test qo'shish</a></li>
+            <li><a href="content_media.html"><i class="ti-more"></i></a></li>
+            <li><a href="content_grid.html"><i class="ti-more"></i>Grid</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i data-feather="package"></i>
+            <span>Test Natijalari</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'user_result' %}"><i class="ti-more"></i>Jadval</a></li>
+
+          </ul>
+        </li>
+
+		<li class="treeview">
+          <a href="#">
+            <i data-feather="edit-2"></i>
+            <span>Murojaatlar</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'murojaat' %}"><i class="ti-more"></i>Jadval</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i data-feather="inbox"></i>
+			<span>Forms</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="forms_advanced.html"><i class="ti-more"></i>Advanced Elements</a></li>
+            <li><a href="forms_editors.html"><i class="ti-more"></i>Editors</a></li>
+            <li><a href="forms_code_editor.html"><i class="ti-more"></i>Code Editor</a></li>
+            <li><a href="forms_validation.html"><i class="ti-more"></i>Form Validation</a></li>
+            <li><a href="forms_wizard.html"><i class="ti-more"></i>Form Wizard</a></li>
+            <li><a href="forms_general.html"><i class="ti-more"></i>General Elements</a></li>
+            <li><a href="forms_dropzone.html"><i class="ti-more"></i>Dropzone</a></li>
+          </ul>
+        </li>
+		<li class="treeview">
+          <a href="#">
+            <i data-feather="server"></i>
+			<span>Tables</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="tables_simple.html"><i class="ti-more"></i>Simple tables</a></li>
+            <li><a href="tables_data.html"><i class="ti-more"></i>Data tables</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i data-feather="pie-chart"></i>
+            <span>Charts</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="charts_chartjs.html"><i class="ti-more"></i>ChartJS</a></li>
+            <li><a href="charts_flot.html"><i class="ti-more"></i>Flot</a></li>
+            <li><a href="charts_inline.html"><i class="ti-more"></i>Inline</a></li>
+            <li><a href="charts_morris.html"><i class="ti-more"></i>Morris</a></li>
+            <li><a href="charts_peity.html"><i class="ti-more"></i>Peity</a></li>
+            <li><a href="charts_chartist.html"><i class="ti-more"></i>Chartist</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i data-feather="map"></i>
+			<span>Map</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="map_google.html"><i class="ti-more"></i>Google Map</a></li>
+            <li><a href="map_vector.html"><i class="ti-more"></i>Vector Map</a></li>
+          </ul>
+        </li>
+
+		<li class="treeview">
+          <a href="#">
+            <i data-feather="alert-triangle"></i>
+			<span>Authentication</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="auth_login.html"><i class="ti-more"></i>Login</a></li>
+			<li><a href="auth_register.html"><i class="ti-more"></i>Register</a></li>
+			<li><a href="auth_lockscreen.html"><i class="ti-more"></i>Lockscreen</a></li>
+			<li><a href="auth_user_pass.html"><i class="ti-more"></i>Password</a></li>
+			<li><a href="error_404.html"><i class="ti-more"></i>Error 404</a></li>
+			<li><a href="error_maintenance.html"><i class="ti-more"></i>Maintenance</a></li>
+          </ul>
+        </li>
+
+		<li class="header nav-small-cap">EXTRA</li>
+
+        <li class="treeview">
+          <a href="#">
+            <i data-feather="layers"></i>
+			<span>Multilevel</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#">Level One</a></li>
+            <li class="treeview">
+              <a href="#">Level One
+                <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#">Level Two</a></li>
+                <li class="treeview">
+                  <a href="#">Level Two
+                    <span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#">Level Three</a></li>
+                    <li><a href="#">Level Three</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Level One</a></li>
+          </ul>
+        </li>
+
+		<li>
+          <a href="auth_login.html">
+            <i data-feather="lock"></i>
+			<span>Log Out</span>
+          </a>
+        </li>
+
+      </ul>
+    </section>
+
+	<div class="sidebar-footer">
+		<!-- item-->
+		<a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a>
+		<!-- item-->
+		<a href="mailbox_inbox.html" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ti-email"></i></a>
+		<!-- item-->
+		<a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ti-lock"></i></a>
+	</div>
+  </aside>

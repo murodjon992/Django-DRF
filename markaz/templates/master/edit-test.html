@@ -1,0 +1,90 @@
+{% extends 'master/index.html' %}
+{% block content %}
+
+        <div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Yangilik Qo'shish</h3>
+                    <a class="btn btn-outline btn-success" href="{% url 'manage-test' %}">Testlar ro'yxati</a>
+				</div>
+			</div>
+		</div>
+        <div class="content">
+            <div class="col-6">
+        <div class="box">
+			<div class="box-header with-border">
+			  <h4 class="box-title">Yangi Test</h4>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+			  <div class="row">
+				<div class="col">
+					<form action="{% url 'add-test' %}" enctype="multipart/form-data" method="post">
+						{% csrf_token %}
+					  <div class="row">
+						<div class="col-12">
+							<div class="form-group">
+								<h5>Test Turkumi <span class="text-danger">*</span></h5>
+								<div class="controls">
+									<select name="test_id" class="form-control" id="">
+										<option value="">-- turkum tanlang --</option>
+										{% for i in test %}
+                                        {% if i == savol.test %}
+										<option selected value="{{ i.id }}">{{ savol.test }}</option>
+                                        {% else %}
+										<option value="{{ i.id }}">{{ i }}</option>
+                                        {% endif%}
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<h5>Test savoli<span class="text-danger">*</span></h5>
+								<div class="controls">
+                                    <textarea name="test_savol" class="form-control" name="" id="" cols="30" rows="4"> {{ savol.question }}</textarea>
+                                </div>
+							</div>
+							<div class="row">
+								<div class="col-6">
+                           			 <div class="form-group">
+											<h5>A<span class="text-danger">*</span></h5>
+                           			     <input type="text" name="a" value="{{ savol.a }}" class="form-control">
+                           			 </div>
+								</div>
+								<div class="col-6">
+                           			 <div class="form-group">
+											<h5>B<span class="text-danger">*</span></h5>
+                           			     <input type="text" name="b" value="{{ savol.b }}" class="form-control">
+                           			 </div>
+								</div>
+								<div class="col-6">
+                           			 <div class="form-group">
+											<h5>C<span class="text-danger">*</span></h5>
+                           			     <input type="text" name="c" value="{{ savol.c }}" class="form-control">
+                           			 </div>
+								</div>
+								<div class="col-6">
+                           			 <div class="form-group">
+											<h5>D<span class="text-danger">*</span></h5>
+                           			     <input type="text" name="d" value="{{ savol.d }}" class="form-control">
+                           			 </div>
+								</div>
+								<div class="col-6">
+                           			 <div class="form-group">
+											<h5>To'g'ri javob<span class="text-danger">*</span></h5>
+                           			     <input type="text" name="true_answer" value="{{ savol.togri_javob }}" class="form-control">
+                           			 </div>
+								</div>
+							</div>
+							<button type="submit" class="btn btn-primary">Test qo'shish</button>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+                </div>
+                </div>
+        </div>
+        </div>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'master/index.html' %}
+{% block content %}
+
+        <div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Test Natijalari</h3>
+                    <a class="btn btn-outline btn-success" href="{% url 'add-group' %}">Guruh qo'shish</a>
+				</div>
+			</div>
+		</div>
+        <div class="content">
+            <div class="col-12">
+			  <div class="box">
+				<div class="box-header with-border">
+				  <h4 class="box-title">Guruhlar Jadvali</h4>
+				  <div class="box-controls pull-right">
+					<div class="lookup lookup-circle lookup-right">
+					  <input type="text" name="s">
+					</div>
+				  </div>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body no-padding">
+					<div class="table-responsive">
+					  <table class="table table-hover">
+						<tr>
+						  <th>TR</th>
+						  <th>Ismi</th>
+						  <th>Test</th>
+						  <th>Guruhi</th>
+						  <th>Holati</th>
+						  <th>Topilan javoblar</th>
+						  <th>O'tish foizi</th>
+						  <th>Sertifikat</th>
+						  <th>Xarakatlar</th>
+						</tr>
+						  {% for i in test %}
+						<tr>
+						  <td>{{ forloop.counter }}</td>
+						  <td>{{ i.user }}</td>
+						  <td>{{ i.test }}</td>
+						  <td>{{ i.user.group_id }}</td>
+						  <td>
+                              {% if i.user_passed == True %}
+                              <span class="badge badge-pill badge-success">Muvaffaqqiyatli</span>
+                              {% else %}
+                              <span class="badge badge-pill badge-danger">O'ta olmadi</span>
+                              {% endif %}
+                          </td>
+                            <td>{{ i.finded_question }}</td>
+                            <td>{{ i.percentage }}%</td>
+                            <td>
+								{% if i.user.sertifikat == True %}
+								<a class="badge badge-pill badge-success" disabled href="{% url 'sertifikat' i.user %}">Sertifikat yuborilgan</a>
+								{% else %}
+								<a class="badge badge-pill badge-danger" href="{% url 'sertifikat' i.user %}">Sertifikat yuborish kerak</a>
+								{% endif %}
+							</td>
+						  <td>
+							  <a href="{%  url 'edit-group' i.id %}" class="btn btn-success"><i class="fa fa-edit"></i></a>
+							  <a href="{%  url 'delete_result' i.id %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+						  </td>
+						</tr>
+						  {% endfor %}
+					  </table>
+					</div>
+				</div>
+				<!-- /.box-body -->
+			  </div>
+			  <!-- /.box -->
+			</div>
+        </div>
+
+{% endblock %}

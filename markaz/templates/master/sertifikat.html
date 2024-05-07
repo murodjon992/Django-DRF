@@ -1,0 +1,58 @@
+{% extends 'master/index.html' %}
+{% block content %}
+
+        <div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Guruh Qo'shish</h3>
+                    <a class="btn btn-outline btn-success" href="{% url 'manage-group' %}">Guruhlar ro'yxati</a>
+				</div>
+			</div>
+		</div>
+        <div class="content">
+            <div class="col-6">
+        <div class="box">
+			<div class="box-header with-border">
+			  <h4 class="box-title">Sertifikat malumotlari</h4>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+			  <div class="row">
+				<div class="col">
+					<form action="{% url 'add-group' %}" method="post">
+						{% csrf_token %}
+					  <div class="row">
+						<div class="col-12">
+							<div class="form-group">
+								<h5>Guruh Nomi <span class="text-danger">*</span></h5>
+								<div class="controls">
+									<input type="text" name="group_name" value="{{ user.group_id }}" class="form-control" required >
+								</div>
+							</div>
+							<div class="form-group">
+								<h5>Familiyasi va Ismi<span class="text-danger">*</span></h5>
+								<div class="controls">
+									<input type="text" name="group_time" class="form-control" value="{{ user.last_name }} {{ user.first_name }}"> </div>
+							</div>
+							<div class="form-group">
+								<h5>Kursi<span class="text-danger">*</span></h5>
+								<div class="controls">
+									<input type="text" name="group_time" class="form-control" value="{{ user.course_id }}"> </div>
+							</div>
+							<div class="form-group">
+								<h5>Sanasi<span class="text-danger">*</span></h5>
+								<div class="controls">
+									<input type="date" name="group_time" class="form-control"> </div>
+							</div>
+							<button type="submit" class="btn btn-primary">Qo'shish</button>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+                </div>
+                </div>
+        </div>
+        </div>
+        </div>
+
+{% endblock %}

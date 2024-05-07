@@ -1,0 +1,98 @@
+{% load static %}
+{% load i18n %}
+<header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header ">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo">
+                                    <a href="{% url 'home' %}"><img height="50" src="{% static 'assets/img/logokichik.png' %}" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10">
+                                <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                    <!-- Main-menu -->
+                                    {% include 'messa.html' %}
+                                    <div class="main-menu d-none d-lg-block">
+                                        <nav>
+                                            <ul id="navigation">
+                                                <li><a href="{% url 'home' %}">{% trans 'Bosh sahifa' %}</a></li>
+                                                <li><a href="{% url 'news' %}">{% trans 'Takliflar' %}</a></li>
+                                                <li><a href="{% url 'course' %}">{% trans 'Kurslar' %}</a></li>
+                                                <li><a href="#">Blog</a>
+                                                    <ul class="submenu">
+                                                        {% for i in course %}
+                                                        <li><a href="blog.html">{{ i.name }}</a></li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </li>
+                                                <li><a href="{% url 'contact' %}">{% trans 'Bog\'lanish' %}</a></li>
+                                                <!-- Button -->
+                                               
+                                                <li class="button-header">
+                                                    {% if user.is_authenticated %}
+
+                                                        <a class="btn3" href="#">{{ user.username }} <img width="60" height="60" style="border-radius:50%" src="/media/{{ user.profile_pic }}" alt=""></a>
+                                                        <ul class="submenu">
+                                                            <li><a href="{% url 'user-profile' user.username %}">{% trans 'Kabinet' %}</a></li>
+                                                            <li><a href="{% url 'logout' %}">{% trans 'Chiqish' %}</a></li>
+                                                        </ul>
+                                                
+                                                    {% else %}
+                                                     <li class="button-header margin-left "><a href="{% url 'register' %}" class="btn2">{% trans "Ro'yxatdan o'tish" %}</a></li>
+                                                    <a href="{% url 'login_user' %}" class="btn2">{% trans 'Kirish' %}</a>
+                                                    {% endif %}
+                                                </li>
+                                                <li>
+                                                    <div class="dropdown">
+                                                         {% get_current_language as LANGUAGE_CODE %}
+                                                        {% get_available_languages as LANGUAGES %}
+                                                        {% get_language_info_list for LANGUAGES as languages %}
+                                                        <button style="padding:5px 10px !important;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                             {% if LANGUAGE_CODE == 'en' %}
+                                                              <img width="20" src="{% static 'assets/img/enf.png' %}" alt="">
+                                                         {% elif LANGUAGE_CODE == 'ru' %}
+                                                              <img width="20" src="{% static 'assets/img/rus.png' %}" alt="">
+                                                         {% else %}
+                                                              <img width="20" src="{% static 'assets/img/uzpng.png' %}" alt="">
+                                                         {% endif %}
+                                                         {{ LANGUAGE_CODE }}
+                                                        </button>
+                                                        <div class="dropdown-menu" style="border-radius:10px; margin:0; padding:0;" aria-labelledby="dropdownMenuButton">
+
+                                                        {% for language in languages %}
+                                                          <a style="margin:0; padding:8px; width:max-content;" class="dropdown-item text-dark" href="/{{ language.code }} ">
+                                                          {% if language.code == 'en' %}
+                                                              <img width="20" src="{% static 'assets/img/enf.png' %}" alt="">
+                                                         {% elif language.code == 'ru' %}
+                                                              <img width="20" src="{% static 'assets/img/rus.png' %}" alt="">
+                                                         {% else %}
+                                                              <img width="20" src="{% static 'assets/img/uzpng.png' %}" alt="">
+                                                         {% endif %}
+                                                            {{ language.code }}
+                                                          </a>
+                                                        {% endfor %}
+                                                        </div>
+                                                    </div>
+
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>

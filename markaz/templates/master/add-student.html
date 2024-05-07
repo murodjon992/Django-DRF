@@ -1,0 +1,87 @@
+{% extends 'master/index.html' %}
+{% block content %}
+
+        <div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">O'quvchi Qo'shish</h3>
+                    <a class="btn btn-outline btn-success" href="{% url 'manage-student' %}">O'quvchilar ro'yxati</a>
+				</div>
+			</div>
+		</div>
+        <div class="content">
+            <div class="col-6">
+        <div class="box">
+			<div class="box-header with-border">
+			  <h4 class="box-title">Yangi o'quvchi malumotlari</h4>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+			  <div class="row">
+				<div class="col">
+					<form action="{% url 'add-student' %}" enctype="multipart/form-data" method="post">
+						{% csrf_token %}
+					  <div class="row">
+						<div class="col-12">
+							<div class="form-group">
+								<h5>Foydalanuvchi Nomi <span class="text-danger">*</span></h5>
+								<div class="controls">
+									<input type="text" name="username" class="form-control" required data-validation-required-message="This field is required"> </div>
+							</div>
+                            <div class="form-group">
+								<h5>Ismi <span class="text-danger">*</span></h5>
+								<div class="controls">
+									<input type="text" name="first_name" class="form-control" required data-validation-required-message="This field is required"> </div>
+							</div>
+                            <div class="form-group">
+								<h5>Familiyasi <span class="text-danger">*</span></h5>
+								<div class="controls">
+									<input type="text" name="last_name" class="form-control" required data-validation-required-message="This field is required"> </div>
+							</div>
+							<div class="form-group">
+								<h5>Elektron pochta<span class="text-danger">*</span></h5>
+								<div class="controls">
+									<input type="email" name="email" class="form-control" required data-validation-required-message="This field is required"> </div>
+							</div>
+							<div class="row">
+							<div class="col-6">
+                            <div class="form-group">
+								<h5>Kursi<span class="text-danger">*</span></h5>
+                                <select name="course" class="form-control" id="">
+                                    {% for i in course %}
+                                    <option value="{{ i.id }}">{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+							</div>
+								</div>
+							<div class="col-6">
+							<div class="form-group">
+								<h5>Guruhi<span class="text-danger">*</span></h5>
+                                <select name="group" class="form-control" id="">
+                                    {% for i in guruh %}
+                                    <option value="{{ i.id }}">{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+							</div>
+								</div>
+								</div>
+                            <div class="form-group">
+								<h5>Rasmi<span class="text-danger">*</span></h5>
+                                <input type="file" name="student_pic" class="form-control">
+                            </div>
+							<div class="form-group">
+								<h5>Parol<span class="text-danger">*</span></h5>
+                                <input type="text" name="password" class="form-control">
+                            </div>
+							<button type="submit" class="btn btn-primary">Qo'shish</button>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+                </div>
+                </div>
+        </div>
+        </div>
+        </div>
+
+{% endblock %}

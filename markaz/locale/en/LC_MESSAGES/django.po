@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-22 12:08+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\markaz\settings.py:115
+msgid "Uzbek"
+msgstr ""
+
+#: .\markaz\settings.py:116
+msgid "Russian"
+msgstr ""
+
+#: .\markaz\settings.py:117
+msgid "English"
+msgstr ""
+
+#: .\templates\check-profile.html:36
+msgid "Login:"
+msgstr "Login:"
+
+#: .\templates\check-profile.html:37
+msgid "Ismi:"
+msgstr "Name:"
+
+#: .\templates\check-profile.html:38
+msgid "Familiyasi:"
+msgstr "Last Name:"
+
+#: .\templates\check-profile.html:39
+msgid "Foydalanuvchi nomi (login):"
+msgstr "Username:"
+
+#: .\templates\check-profile.html:40
+msgid "Elektron Pochta:"
+msgstr "Email:"
+
+#: .\templates\check-profile.html:41
+msgid "Kursi:"
+msgstr "Course:"
+
+#: .\templates\check-profile.html:42
+msgid "Ro"
+msgstr "Register"
+
+#: .\templates\components\header.html:23
+msgid "Bosh sahifa"
+msgstr "Home"
+
+#: .\templates\components\header.html:24
+msgid "Takliflar"
+msgstr "Packages"
+
+#: .\templates\components\header.html:25
+msgid "Kurslar"
+msgstr "Courses"
+
+#: .\templates\components\header.html:33
+msgid "Bog\\"
+msgstr "Blogs"
+
+#: .\templates\components\header.html:41
+msgid "Kabinet"
+msgstr "Cabinet"
+
+#: .\templates\components\header.html:42
+msgid "Chiqish"
+msgstr "Logout"
+
+#: .\templates\components\header.html:46
+msgid "Ro\\"
+msgstr "Register"
+
+#: .\templates\components\header.html:47
+msgid "Kirish"
+msgstr "Login"
+
+#: .\templates\contact.html:14
+msgid "Biz bilan boglanish"
+msgstr "Contact us"

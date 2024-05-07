@@ -1,0 +1,113 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+
+ <main>
+   <!-- Slider Area Start-->
+   <div class="slider-area slider-bg ">
+     <!-- Single Slider -->
+     <div class="single-slider d-flex align-items-center slider-height3">
+       <div class="container">
+         <div class="row align-items-center justify-content-center">
+           <div class="col-xl-8 col-lg-9 col-md-12 ">
+             <div class="hero__caption hero__caption3 text-center">
+               <h1 data-animation="fadeInLeft" data-delay=".6s ">Kabinet</h1>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- Slider Shape -->
+     <div class="slider-shape d-none d-lg-block">
+       <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+     </div>
+   </div>
+   <!-- Slider Area End -->
+   <!--? Blog Area Start -->
+   <section class="blog_area single-post-area section-padding">
+     <div class="container">
+      <div class="row">
+       <div class="col-lg-12 posts-list">
+       
+   
+<div class="blog-author">
+    {% if user.status != 2 %}
+    <div class="media align-items-center border border-dark px-2 mb-4">
+             <img src="/media/{{user.profile_pic}}" alt="">
+            <div class="media-body">
+               <ul class="border-left border-right border-dark px-3">
+                   <li class="p-2">Login: <span class="text-bold font-weight-bold">{{ user.username }}</span></li>
+                   <li class="p-2">Ismi: <span class="text-bold font-weight-bold">{{ user.first_name }}</span></li>
+                   <li class="p-2">Familiyasi: <span class="text-bold font-weight-bold">{{ user.last_name }}</span></li>
+                   <li class="p-2">Foydalanuvchi nomi (login): <span class="text-bold font-weight-bold">{{ user.username }}</span></li>
+                   <li class="p-2">Elektron Pochta: <span class="text-bold font-weight-bold">{{ user.email }}</span></li>
+                   <li class="p-2">Kursi: <span class="text-bold font-weight-bold">{{ user.course_id }}</span></li>
+                   <li class="p-2">Ro'yxatga olingan sana: <span class="text-bold font-weight-bold">{{ user.date_joined|date:"d M Y" }} yil</span></li>
+               </ul>
+
+            </div>
+            <div class="">
+
+            <p> <a class="btn" href="{% url 'edit_profile' user.id %}">Tahrirlash</a></p>
+               {% if user.test == True %}
+                     <p class="my-2">
+                         {% for i in test %}
+                                  {% if user.course_id == i.category and user.natija == False %}
+                                        <a class="btn btn-primary" href="{% url 'test_boshla' i.id %}">{{ user.course_id }} testi</a>
+                                 {% endif %}
+                         {% endfor %}
+                     </p>
+               {% endif %}
+            </div>
+    </div>
+
+    <hr>
+
+    {% if user.natija == True %}
+
+
+    <table class="table table-striped mt-4">
+  <thead class="thead-dark">
+    <tr>
+      <th>To'g'ri javob</th>
+      <th>Foiz darajasi</th>
+      <th width="40%">Test</th>
+      <th>Natija</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ chek_test.finded_question }}ta</td>
+      <td>{{ chek_test.percentage }}%</td>
+      <td>{{ chek_test.test }}</td>
+
+        {% if chek_test.user_passed == True %}
+
+      <td class="bg-success text-light">Muvaffaqqiyatli </td>
+        {% else %}
+      <td class="bg-danger text-light">Afsuski o'tolmadingiz </td>
+        {% endif %}
+    </tr>
+
+  </tbody>
+</table>
+    {% if user.sertifikat == True %}
+    <a href="{% url 'download' user.username %}" style="float: right" class="btn btn-outline-primary">Sertifikat yuklab olish</a>
+    {% endif %}
+    {% endif %}
+
+    {% else %}
+    <div class="alert alert-danger alert-dismissible fade show">Kechirasiz siz uchun hech qanday malumot yoq siz sababsiz ketganingiz uchun  <button type="button" class="close" data-dismiss="alert" aria-label="Yopish">
+                    <span aria-hidden="true">&times;</span>
+                </button></div>
+    {% endif %}
+
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Blog Area End -->
+</main>
+{% endblock %}

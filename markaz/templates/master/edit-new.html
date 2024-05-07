@@ -1,0 +1,55 @@
+{% extends 'master/index.html' %}
+{% block content %}
+
+        <div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Tahrirlash</h3>
+                    <a class="btn btn-outline btn-success" href="{% url 'manage-new' %}">Yangiliklar ro'yxati</a>
+				</div>
+			</div>
+		</div>
+        <div class="content">
+            <div class="col-6">
+        <div class="box">
+			<div class="box-header with-border">
+			  <h4 class="box-title">Yangilik malumotlarini yangilash</h4>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+			  <div class="row">
+				<div class="col">
+					<form action="{% url 'update-new' %}" enctype="multipart/form-data" method="post">
+						{% csrf_token %}
+					  <div class="row">
+						  <input type="hidden" value="{{ new.id }}" name="id">
+						<div class="col-12">
+							<div class="form-group">
+								<h5>Yangilik Nomi <span class="text-danger">*</span></h5>
+								<div class="controls">
+									<input type="text" name="new_name" value="{{ new.title }}" class="form-control" required data-validation-required-message="This field is required"> </div>
+							</div>
+							<div class="form-group">
+								<h5>Tavsifi<span class="text-danger">*</span></h5>
+								<div class="controls">
+									<textarea name="new_body" class="form-control" id="" cols="30" rows="10">{{ new.body }}</textarea>
+							</div>
+                            <div class="form-group">
+								<h5>Rasmi<span class="text-danger">*</span></h5>
+                                <input type="file" name="new_img" class="form-control">
+                            </div>
+							<div class="form-group">
+								<img height="150" src="/media/{{ new.new_img}}" alt="">
+                            </div>
+							<button type="submit" class="btn btn-primary">Yangilash</button>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+                </div>
+                </div>
+        </div>
+        </div>
+        </div>
+
+{% endblock %}

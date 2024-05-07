@@ -1,0 +1,53 @@
+{% extends 'master/index.html' %}
+{% block content %}
+
+        <div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Tahrirlash</h3>
+                    <a class="btn btn-outline btn-success" href="{% url 'manage-group' %}">Guruhlar ro'yxati</a>
+				</div>
+			</div>
+		</div>
+        <div class="content">
+            <div class="col-6">
+        <div class="box">
+			<div class="box-header with-border">
+			  <h4 class="box-title">Guruh malumotlarini yangilash</h4>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+			  <div class="row">
+				<div class="col">
+					<form action="{% url 'update-group' %}" method="post">
+						{% csrf_token %}
+					  <div class="row">
+						<div class="col-12">
+							<div class="form-group">
+								<h5>Guruh Nomi <span class="text-danger">*</span></h5>
+								<input type="hidden" value="{{ group.id }}" name="id">
+								<div class="controls">
+									<input type="text" name="group_name" class="form-control" value="{{ group.title }}" required data-validation-required-message="katakni too'ldiring"> </div>
+							</div>
+							<div class="form-group">
+								<h5>Dars Vaqtlari<span class="text-danger">*</span></h5>
+								<div class="controls">
+									<input type="text" name="group_time" class="form-control" value="{{ group.vaqti }}" required data-validation-required-message="This field is required"> </div>
+							</div>
+							<div class="form-group">
+								<h5>Tugash Sanasi<span class="text-danger">*</span></h5>
+								<div class="controls">
+									<input type="date" name="end_time" class="form-control" value="{{ group.end_date|date:'Y-m-d' }}" required data-validation-required-message="This field is required"> </div>
+							</div>
+							<button type="submit" class="btn btn-primary">Yangilash</button>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+                </div>
+                </div>
+        </div>
+        </div>
+        </div>
+
+{% endblock %}

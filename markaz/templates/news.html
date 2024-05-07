@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% block content %}
+
+{% load i18n %}
+<main>
+    <!-- Slider Area Start-->
+    <div class="slider-area slider-bg ">
+        <!-- Single Slider -->
+        <div class="single-slider d-flex align-items-center slider-height3">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-xl-8 col-lg-9 col-md-12 ">
+                        <div class="hero__caption hero__caption3 text-center">
+                            <h1 data-animation="fadeInLeft" data-delay=".6s ">{% trans "Eng So'ngi yangiliklar" %}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Slider Shape -->
+        <div class="slider-shape d-none d-lg-block">
+            <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+        </div>
+    </div>
+    <!-- Slider Area End -->
+    <!--?  Contact Area start  -->
+    <section class="contact-section">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-9">
+                    {% for i in news %}
+                    <div class="card shadow p-4 mb-5 rounded">
+                        <h2 class="card-header">  {{ i.title }}</h2>
+                        <div class="card-body d-flex">
+                    <div>
+                    {{ i.body }}
+                            <br>
+                            <hr>
+                  <span class="badge badge-pill badge-primary">  {{ i.created }} </span>
+                        </div>
+                <img width="250" src="/media/{{ i.new_img }}" alt="">
+                            </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Area End -->
+</main>
+{% endblock %}
